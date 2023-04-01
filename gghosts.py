@@ -3,6 +3,8 @@ import requests
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.utils import ChromeType
 
 # Set headless option for Chrome driver
 chrome_options = Options()
@@ -12,7 +14,8 @@ chrome_options.add_argument("--disable-gpu")
 chrome_options.add_argument("--no-sandbox")
 
 # Open Chrome driver
-driver = webdriver.Chrome(options=chrome_options)
+driver_path = ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()
+driver = webdriver.Chrome(driver_path, options=chrome_options)
 
 # Get IP address list
 ip_url = "https://github.com/Ponderfly/GoogleTranslateIpCheck/raw/master/src/GoogleTranslateIpCheck/GoogleTranslateIpCheck/ip.txt"
