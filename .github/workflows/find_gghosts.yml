@@ -2,7 +2,7 @@ name: find_gghosts
 
 on:
   schedule:
-    - cron: "22 6 * * *"
+    - cron: "33 6 * * *"
 
 jobs:
   ping-ip-addresses:
@@ -41,7 +41,7 @@ jobs:
           git add .
           git commit -m "update gg_hosts.txt"
       - name: Push changes
-        uses: Nanqiang01/gghosts@main
+        uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GGHOSTS_TOKEN }}
           branch: main
