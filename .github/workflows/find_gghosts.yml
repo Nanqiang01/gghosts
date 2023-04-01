@@ -2,7 +2,7 @@ name: find_gghosts
 
 on:
   schedule:
-    - cron: "33 6 * * *"
+    - cron: "40 6 * * *"
 
 jobs:
   ping-ip-addresses:
