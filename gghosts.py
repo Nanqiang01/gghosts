@@ -81,7 +81,7 @@ googlehosts = [
     "gvt0.com",
 ]
 
-with open("google_hosts.txt", "w") as f:
+with open("gg_hosts.txt", "w") as f:
     for ip in sorted_ips[:10]:
         for hosts in googlehosts:
             f.write("||" + hosts + "^$dnsrewrite=" + ip + "\n")
