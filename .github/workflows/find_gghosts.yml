@@ -13,10 +13,10 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v2
 
-      - name: Set up Python 3.8
+      - name: Set up Python 3.9
         uses: actions/setup-python@v2
         with:
-          python-version: 3.8
+          python-version: 3.9
           
       - name: Installed package list
         run: apt list --installed
@@ -41,7 +41,8 @@ jobs:
           git config --local user.email "1326356682@qq.com"
           git config --local user.name "Nanqiang01"
           git add .
-          git commit -m "update gg_hosts.txt"
+          git commit -m "update" -a
+          
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
