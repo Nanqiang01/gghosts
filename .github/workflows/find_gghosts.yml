@@ -41,7 +41,7 @@ jobs:
           git config --local user.email "1326356682@qq.com"
           git config --local user.name "Nanqiang01"
           git add .
-          git commit -m "update" -a
+          git commit -m "Auto update" -a
           
       - name: Push changes
         uses: ad-m/github-push-action@master
