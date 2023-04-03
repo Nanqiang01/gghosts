@@ -1,0 +1,50 @@
+name: gghosts
+
+on:
+  schedule:
+    - cron: "0 16 * * 7"  
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+          
+      - name: Installed package list
+        run: apt list --installed
+        
+      - name: Remove Chrome
+        run: sudo apt purge google-chrome-stable
+        
+      - name: Remove default Chromium
+        run: sudo apt purge chromium-browser
+        
+      - name: Install a new Chromium
+        run: sudo apt install -y chromium-browser
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4 pandas webdriver-manager selenium
+
+      - name: Ping IP and save hosts
+        run: python gghosts.py
+        
+      - name: Commit files
+        run: |
+          git config --local user.email "1326356682@qq.com"
+          git config --local user.name "Nanqiang01"
+          git add .
+          git commit -m "Update gghosts.txt" -a
+          
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GGHOSTS }}
+          branch: main
