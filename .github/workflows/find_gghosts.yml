@@ -2,7 +2,7 @@ name: find_gghosts
 
 on:
   schedule:
-    - cron: "0 16 * * *"  
+    - cron: "0 16 * * 7"  
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -41,7 +41,7 @@ jobs:
           git config --local user.email "1326356682@qq.com"
           git config --local user.name "Nanqiang01"
           git add .
-          git commit -m "Auto update" -a
+          git commit -m "Update gghosts.txt" -a
           
       - name: Push changes
         uses: ad-m/github-push-action@master
