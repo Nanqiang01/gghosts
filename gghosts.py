@@ -71,7 +71,7 @@ for ip in ips:
 
 # Sort IP addresses by latency and save top 10 to file
 sorted_ips = sorted(avg_latency.items(), key=lambda x: x[1])
-best_ip = list(dict(sorted_ips[:10]))
+best_ip = list(dict(sorted_ips[:1]))
 
 driver.quit()
 googlehosts = [
