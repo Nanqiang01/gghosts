@@ -45,11 +45,11 @@ ips = response.text.splitlines()
 avg_latency = {}
 for ip in ips:
     driver.get("https://ipw.cn/ping/")
-    time.sleep(2)
+    time.sleep(1)
     driver.find_element(By.CLASS_NAME, "form-input").clear()
     driver.find_element(By.CLASS_NAME, "form-input").send_keys(ip)
     driver.find_element(By.CLASS_NAME, "button").click()
-    time.sleep(2)
+    time.sleep(1)
 
     before_XPath = "//*[@id='tfhover']/tbody/tr["
     aftertd_XPath_1 = "]/td[1]"
