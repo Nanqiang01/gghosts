@@ -45,11 +45,11 @@ ips = response.text.splitlines()
 avg_latency = {}
 for ip in ips:
     driver.get("https://ipw.cn/ping/")
-    time.sleep(1)
+    time.sleep(2)
     driver.find_element(By.CLASS_NAME, "form-input").clear()
     driver.find_element(By.CLASS_NAME, "form-input").send_keys(ip)
     driver.find_element(By.CLASS_NAME, "button").click()
-    time.sleep(1)
+    time.sleep(2)
 
     before_XPath = "//*[@id='tfhover']/tbody/tr["
     aftertd_XPath_1 = "]/td[1]"
@@ -78,13 +78,13 @@ googlehosts = [
     "google.com",
     "googleapis.com",
     "google.com.hk",
+    "google.com.jp",
     "googleusercontent.com",
     "ytimg.com",
     "youtube.com",
     "youtube-nocookie.com",
     "youtu.be",
     "ggpht.com",
-    "youtu.be",
     "gstatic.com",
     "translate.goog",
     "blogspot.com",
